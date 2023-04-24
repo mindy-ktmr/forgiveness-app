@@ -21,7 +21,7 @@ form.addEventListener("submit", function (event) {
     .then((response) => response.json())
     .then((generatedCharacter) => {
       characterDiv.innerHTML = `<p>${generatedCharacter.text}</p>`;
-      characterContainer.style.display = "block
+      characterContainer.style.display = "block";
 
 
     displayForgivenessSteps();
