@@ -1,16 +1,28 @@
+
+
+
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("preferences-form");
   const characterContainer = document.getElementById("character-container");
   const characterDiv = document.getElementById("character");
   const forgivenessSteps = document.getElementById("forgiveness-steps");
 
-  form.addEventListener("submit", function (event) {
-    event.preventDefault();
-    const preferences = document.getElementById("preferences").value;
-    const generatedCharacter = generateCharacter(preferences);
+form.addEventListener("submit", function (event) {
+  event.preventDefault();
+  const preferences = document.getElementById("preferences").value;
 
-    characterDiv.innerHTML = `<p>Name: ${generatedCharacter.name}</p>`;
-    characterContainer.style.display = "block";
+  fetch("http://localhost:5000/generate-character", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ preferences: preferences }),
+  })
+    .then((response) => response.json())
+    .then((generatedCharacter) => {
+      characterDiv.innerHTML = `<p>${generatedCharacter.text}</p>`;
+      characterContainer.style.display = "block
+
 
     displayForgivenessSteps();
   });
