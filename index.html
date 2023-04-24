@@ -9,7 +9,18 @@
 <body>
   <h1>Welcome to the Forgiveness App</h1>
   <div id="app">
-    <!-- Your app content will go here -->
+    <form id="preferences-form">
+  <label for="preferences">Enter your preferences:</label>
+  <textarea id="preferences" name="preferences" rows="4" cols="50"></textarea>
+  <button type="submit">Generate Character</button>
+</form>
+
+<div id="character-container" style="display:none;">
+  <h2>Generated Character:</h2>
+  <div id="character"></div>
+  <div id="forgiveness-steps"></div>
+</div>
+
   </div>
   <script src="script.js"></script>
 </body>
