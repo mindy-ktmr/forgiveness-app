@@ -1,13 +1,14 @@
-from flask import Flask, request, jsonify
-from flask_cors import CORS
+from flask import Flask, request, jsonify, send_from_directory
 import openai
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='.')
 CORS(app, resources={r"*": {"origins": "*"}})
 
-
+@app.route('/')
 @app.route('/generate-character', methods=['POST'])
 
+def serve_index():
+    return send_from_directory('.', 'index.html')
 
 def generate_character():
     preferences = request.json['preferences']
