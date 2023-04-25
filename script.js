@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
     })
       .then((response) => {
           console.log(response);
+          console.log('Response text:', response.text());
           return response.json();
         })
         .then((generatedCharacter) => {
