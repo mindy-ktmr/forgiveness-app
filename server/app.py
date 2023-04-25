@@ -27,6 +27,7 @@ def generate_character():
     character = {
         'text': character_text
     }
+    print("Generated character:", character)
     return jsonify(character)
 
 
