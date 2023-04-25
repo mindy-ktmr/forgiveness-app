@@ -2,7 +2,6 @@ from flask import Flask, request, jsonify, send_from_directory
 import openai
 
 app = Flask(__name__, static_folder='.')
-CORS(app, resources={r"*": {"origins": "*"}})
 
 @app.route('/')
 @app.route('/generate-character', methods=['POST'])
