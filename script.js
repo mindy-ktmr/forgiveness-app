@@ -16,8 +16,6 @@ document.addEventListener("DOMContentLoaded", function () {
       body: JSON.stringify({ preferences: preferences }),
     })
       .then((response) => {
-          console.log(response);
-          console.log('Response text:', response.text());
           return response.json();
         })
         .then((generatedCharacter) => {
