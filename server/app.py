@@ -1,12 +1,13 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
+import openai
 
 app = Flask(__name__)
 CORS(app)
 
 
 @app.route('/generate-character', methods=['POST'])
-import openai
+
 
 def generate_character():
     preferences = request.json['preferences']
