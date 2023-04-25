@@ -15,13 +15,16 @@ document.addEventListener("DOMContentLoaded", function () {
       },
       body: JSON.stringify({ preferences: preferences }),
     })
-      .then((response) => response.json())
-      .then((generatedCharacter) => {
-        characterDiv.innerHTML = `<p>${generatedCharacter.text}</p>`;
-        characterContainer.style.display = "block";
+      .then((response) => {
+          console.log(response);
+          return response.json();
+        })
+        .then((generatedCharacter) => {
+          characterDiv.innerHTML = `<p>${generatedCharacter.text}</p>`;
+          characterContainer.style.display = "block";
 
-        displayForgivenessSteps();
-      });
+          displayForgivenessSteps();
+        });
   });
 
   function displayForgivenessSteps() {
